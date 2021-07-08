@@ -1,0 +1,34 @@
+    <h1>Final Project Test</h1><hr>
+<p>Employee1 Data</p>
+<table border="2" class=table style="width: 100%; height: 100%;" >
+    <tr>
+        <td colspan="3">
+            <input  type="text"  width="150px" class="form-control"  placeholder="Search" [(ngModel)]="filteredString" >
+        </td>
+       
+    </tr>
+    <tr >
+        <th  class="bg-primary text-white">
+            EmployeeId
+        </th>
+        <th class="bg-primary text-white">
+            EmployeeName
+        </th >
+        <th class="bg-primary text-white">
+            EmployeeSalary
+        </th>
+    </tr>
+    <tr appMycolor *ngFor="let employee of employees | search:filteredString " >
+
+        <td class="text-red">
+               {{employee.empId}}
+        </td>
+        <td class="text-red">
+            {{employee.empName | titlecase}}
+     </td>
+     <td class="text-red">
+        {{employee.salary | currency:'INR'}}
+ </td>
+    </tr>
+</table>
+{{errMsg | json}}
